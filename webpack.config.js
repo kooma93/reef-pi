@@ -4,14 +4,17 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
-var BUILD_DIR = path.resolve(__dirname, 'ui')
-var APP_DIR = path.resolve(__dirname, 'front-end', 'src')
-var ASSETS_DIR = path.resolve(__dirname, 'front-end', 'assets')
+const BUILD_DIR = path.resolve(__dirname, 'ui')
+const APP_DIR = path.resolve(__dirname, 'front-end', 'src')
+const ASSETS_DIR = path.resolve(__dirname, 'front-end', 'assets')
 
-var config = {
+module.exports = {
   entry: APP_DIR + '/entry',
+  
+  // Enable sourcemaps for debugging webpack's output
+  devtool: "source-map",
   resolve: {
-    extensions: ['.mjs', '.js', '.jsx'],
+    extensions: ['.ts', '.tsx', '.mjs', '.js', '.jsx'],
     modules: [
       'node_modules',
       path.resolve(__dirname, 'front-end', 'src'),
@@ -58,6 +61,14 @@ var config = {
       {
         test: /\.css/,
         loaders: ['style-loader', 'css-loader']
+      },
+      // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
+      { 
+        test: /\.tsx?$/, loader: "awesome-typescript-loader" 
+      },
+      // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
+      { 
+        enforce: "pre", test: /\.js$/, loader: "source-map-loader" 
       }
     ]
   },
@@ -82,7 +93,9 @@ var config = {
       filename: 'assets/css/[name].[contenthash].css',
       chunkFilename: 'assets/css/[id].css'
     })
-  ]
-}
-
-module.exports = config
+  ],
+  externals: {
+    'react': 'React',
+    'react-dom': 'ReactDOM'
+  }
+};
