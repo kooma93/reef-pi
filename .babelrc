@@ -19,5 +19,6 @@
           ["env", {"modules": false}]
         ]
      }
-  }
+  },
+  "presets": ["@babel/preset-typescript"]
 }
