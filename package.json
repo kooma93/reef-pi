@@ -7,6 +7,9 @@
     "doc": "docs"
   },
   "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-typescript": "^7.3.3",
     "@types/react": "^16.8.19",
     "@types/react-dom": "^16.8.4",
     "autoprefixer": "^9.1.5",
