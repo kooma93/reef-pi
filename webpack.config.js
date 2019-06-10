@@ -11,7 +11,7 @@ var ASSETS_DIR = path.resolve(__dirname, 'front-end', 'assets')
 var config = {
   entry: APP_DIR + '/entry',
   resolve: {
-    extensions: ['.mjs', '.js', '.jsx'],
+    extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx'],
     modules: [
       'node_modules',
       path.resolve(__dirname, 'front-end', 'src'),
@@ -58,6 +58,10 @@ var config = {
       {
         test: /\.css/,
         loaders: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.(ts|tsx)$/,
+        loader: 'babel-loader',
       }
     ]
   },
