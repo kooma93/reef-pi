@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": false,
+    "esModuleInterop": true,
+    "downlevelIteration": true,
+    "lib": ["esnext", "dom"],
+    "module": "commonjs",
+    "noUnusedLocals": true,
+    "outDir": "ui/assets/js",
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "esnext"
+  },
+  "include": ["front-end"]
+}
