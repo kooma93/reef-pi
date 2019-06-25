@@ -5,7 +5,12 @@ import { withFormik } from 'formik'
 const EditEquipmentForm = withFormik({
   displayName: 'EquipmentForm',
   mapPropsToValues: (props: {
-    equipment: object,
+    equipment: {
+      name: string,
+      outlet: any,
+      id: number,
+      on: boolean
+    },
     outlets: any,
     actionLabel: string,
     remove: any,
