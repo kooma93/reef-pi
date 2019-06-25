@@ -1,14 +1,15 @@
 import EditEquipment from './edit_equipment'
 import EquipmentSchema from './equipment_schema.jsx'
 import { withFormik } from 'formik'
-import { outletsLoaded } from '../redux/actions/outlets';
 
 const EditEquipmentForm = withFormik({
   displayName: 'EquipmentForm',
   mapPropsToValues: (props: {
     equipment: object,
-    outlets: ,
-    actionLabel: string
+    outlets: any,
+    actionLabel: string,
+    remove: any,
+    onSubmit: any
   }) => ({
     name: (props.equipment && props.equipment.name) || '',
     outlet: (props.equipment && props.equipment.outlet) || '',
